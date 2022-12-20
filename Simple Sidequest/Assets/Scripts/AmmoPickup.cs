@@ -5,20 +5,16 @@ using UnityEngine;
 public class AmmoPickup : MonoBehaviour
 {
     [SerializeField] int ammoAmount = 10;
-    AudioSource ammoPickSound;
+
+    [SerializeField] AudioClip pickup;
+    [SerializeField] float volume = 1.0f;
     [SerializeField] AmmoType ammoType;
-
-    private void Start()
-    {
-        ammoPickSound = GetComponent<AudioSource>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             FindObjectOfType<Ammo>().IncreaseCurrentAmmo(ammoType, ammoAmount);
-            ammoPickSound.Play();
+            AudioSource.PlayClipAtPoint(pickup, Camera.main.transform.position, volume);
             Destroy(gameObject);
         }
 

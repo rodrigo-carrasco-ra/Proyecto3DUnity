@@ -9,7 +9,11 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float hitPoints = 100f;
     [SerializeField] TextMeshProUGUI hpText;
     [SerializeField] float healthKit = 50f;
-
+    public string playerName;
+    private void Awake()
+    {
+     //   playerName = NameTransfer.instance.playerName;
+    }
     //funcion public que reduce hitpoints dependiendo del daño del zombie
     void Update()
     {
@@ -22,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void DisplayHitPoints()
     {
-        hpText.text = "Puntos de vida: " + hitPoints.ToString();
+        hpText.text ="Puntos de vida de "+playerName +" : " + hitPoints.ToString();
     }
 
     public void TakeDamage(float damage)
@@ -39,5 +43,8 @@ public class PlayerHealth : MonoBehaviour
         hitPoints += healthKit;
     }
 
-
+    public void GetPlayerName()
+    {
+       
+    }
 }

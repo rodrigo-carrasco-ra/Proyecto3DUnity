@@ -6,6 +6,7 @@ public class Ammo : MonoBehaviour
 {
     [SerializeField] AmmoSlot[] ammoSlot; //un array de ammoslots para poner ammotype y ammo ammount
     [System.Serializable]
+
     private class AmmoSlot //clase privada solo para Ammo
     {
         public AmmoType ammoType;

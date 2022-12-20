@@ -16,6 +16,11 @@ public class SceneLoader : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

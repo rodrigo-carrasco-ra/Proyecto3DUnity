@@ -15,9 +15,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] AmmoType ammoType;
     [SerializeField] float timeBetweenShots = 0.5f;
     [SerializeField] AudioSource shootingSound;
-    [SerializeField] TextMeshProUGUI ammoText;
-
+    public TextMeshProUGUI ammoText;
     bool canShoot = true;
+
     private void Start()
     {
         shootingSound = GetComponent<AudioSource>();
@@ -35,7 +35,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void DisplayAmmo()
+    public void DisplayAmmo()
     {
         int currentAmmo  = ammoSlot.GetCurrentAmmo(ammoType);
         ammoText.text = "Municiones: " + currentAmmo.ToString();
